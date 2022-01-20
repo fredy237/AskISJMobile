@@ -1,0 +1,7 @@
+{
+  "appId": "com.usj.project.p1718",
+  "appName": "AskUSJMobile",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "plugins": {}
+}

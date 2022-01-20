@@ -4,7 +4,8 @@ const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
   appName: 'AskUSJMobile',
   webDir: 'www',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  plugins: {}
 };
 
 export default config;
