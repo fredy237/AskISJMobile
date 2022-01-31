@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>TYPES DE DEMANDES</ion-title>
+  </ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+</ion-header>
+
+<ion-content>
+  <br>
+  <strong>  Veuillez choisir le type de demande</strong>
+  <br>
+  <ion-col>
+    <ion-button type="submit" fill="solid" expand="full" expand="block" shape="round" [routerLink]="['/add-ask']" >
+      DEMANDES D'ABSENCE
+    </ion-button>
+  <br>
+  <ion-button type="submit" fill="solid" expand="full" expand="block" shape="round" [routerLink]="['/add-ask']" >
+      REVENDICATION
+  </ion-button>
+<br>
+<ion-button type="submit" fill="solid" expand="full" expand="block" shape="round" [routerLink]="['/add-certificate']" >
+  CERTFICAT SCOLARITE
+</ion-button>
+<br>
+<ion-button type="submit" fill="solid" expand="full" expand="block" shape="round" [routerLink]="['/add-ask']" >
+  JUSTIFICATION D'ABSENCE
+</ion-button>
+
+
+  </ion-col>
+</ion-content>

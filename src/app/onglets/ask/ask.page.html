@@ -1,0 +1,51 @@
+
+
+<ion-header>
+  
+  <ion-toolbar>
+      <ion-title size="large">
+      <strong>Demandes</strong>
+        
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-icon name="create" slot="icon-only" [routerLink]="['/add-ask']"></ion-icon>
+        
+      </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+
+
+
+<ion-content>
+  <div>
+
+ 
+    <ion-list >
+      <ion-item detail routerLink="">
+        <ion-avatar slot="start" >
+          <ion-img src="assets/img/sainte.png"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <div class="flex_box">
+            <h3>Finn</h3>
+            <ion-note slot="end">12:54</ion-note>
+          </div>
+          <p><ion-icon class="text-icon" color="primary" name="done-all"></ion-icon> Listen, I've had a pretty messed up day...</p>
+        </ion-label>
+      </ion-item>
+  
+    </ion-list>
+    <ion-button
+    
+  >
+    action
+  </ion-button>
+  </div>
+</ion-content>

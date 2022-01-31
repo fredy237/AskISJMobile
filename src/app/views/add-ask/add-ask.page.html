@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Formulaire de demande</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  
+
+      <div >
+        
+          <ion-grid>
+            <form class="register-form m-4"  [formGroup]="askForm" (ngSubmit)="onSubmit()">
+              <ion-row>
+                  <ion-col>
+                    
+                      <ion-list>
+                    
+                        
+                        <ion-select interface="popover" class="selector" placeholder="Type de demande" (ionChange)="choice($event)"  formControlName="typeAsk">
+                          <ion-select-option *ngFor="let typeAsk of typeAsks  "  [value]="typeAsk.id"   class="option" text-wrap>
+                            {{typeAsk.nom}}
+                          </ion-select-option>
+                        </ion-select>
+  
+                        
+                          <!-- Absence-->
+                          <ion-item *ngIf="typeChoice ==1">
+                            <ion-textarea  formControlName="motif" type="text" required placeholder="motif">
+                              
+                            </ion-textarea>
+                              
+                          </ion-item>
+                          <br />
+
+                          <ion-select *ngIf="typeChoice ==1" interface="popover" class="selector" placeholder="Type de demande" (ionChange)="choice($event)"  formControlName="typeAbsence">
+                            <ion-select-option *ngFor="let typeAbsence of typeAbsences  "  [value]="typeAbsence.nom"   class="option" text-wrap>
+                              {{typeAbsence.nom}}
+                            </ion-select-option>
+                          </ion-select>
+    
+                          <!-- Revendication-->
+                          <ion-item *ngIf="typeChoice ==2">
+                            <ion-textarea  formControlName="subject" type="text" required placeholder="Matière">
+                              <ion-input  ></ion-input>
+                            </ion-textarea>
+                              
+                          </ion-item>
+
+                          <ion-item *ngIf="typeChoice ==2">
+                            <ion-textarea  formControlName="obtainedMark" type="number" required placeholder="Note obtenue">
+                              <ion-input  ></ion-input>
+                            </ion-textarea>
+                              
+                          </ion-item>
+
+                          <ion-item *ngIf="typeChoice ==2">
+                            <ion-textarea  formControlName="wishedMark" type="number" required placeholder="Note voulue">
+                              <ion-input  ></ion-input>
+                            </ion-textarea>
+                              
+                          </ion-item>
+
+                            <!-- Moratoire-->
+                          
+
+                          <ion-item *ngIf="typeChoice ==4">
+                          
+                              <ion-input formControlName="amount" type="number" required placeholder="montant" ></ion-input>
+                            
+                              
+                          </ion-item>
+                          <br />
+
+                          
+                         <ion-item *ngIf="typeChoice ==1 || typeChoice ==4">
+                           <ion-label>Date</ion-label>
+                           <ion-datetime display-format="DD.MM.YYYY "  formControlName="date"></ion-datetime>
+                         </ion-item>
+                         <input style="display:none;" type="file" accept="image/*, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document" (change)="fileSelected($event)" #chosenFile />
+                         <ion-button class="btnAttach" (click)="chosenFile.click()"><ion-icon class="attach" name="attach"></ion-icon></ion-button>
+                         
+  
+                      </ion-list>
+                   
+                  </ion-col>
+              </ion-row>
+             
+              <ion-row>
+                
+                  <ion-col>
+                      <ion-button type="submit" fill="solid" expand="full" expand="block" shape="round">
+                          ENVOYER
+                      </ion-button>
+                      
+                  </ion-col>
+              </ion-row>
+            </form>
+          </ion-grid>
+        
+      </div>
+ 
