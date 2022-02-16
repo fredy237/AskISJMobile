@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { AuthModule } from "@auth0/auth0-angular";
 import config from 'capacitor.config';
@@ -34,6 +34,7 @@ const redirectUri = `${config.appId}://dev-1kv8vrjh.us.auth0.com/capacitor/${con
     HttpClientModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    HttpClient,
     httpInterceptorProviders
   ],
   bootstrap: [AppComponent],

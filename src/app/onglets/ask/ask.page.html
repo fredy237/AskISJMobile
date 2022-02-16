@@ -28,18 +28,19 @@
 
  
     <ion-list >
-      <ion-item detail routerLink="">
+      <ion-item detail routerLink="" *ngFor="">
         <ion-avatar slot="start" >
           <ion-img src="assets/img/sainte.png"></ion-img>
         </ion-avatar>
         <ion-label>
           <div class="flex_box">
-            <h3>Finn</h3>
+            <h3></h3>
             <ion-note slot="end">12:54</ion-note>
           </div>
           <p><ion-icon class="text-icon" color="primary" name="done-all"></ion-icon> Listen, I've had a pretty messed up day...</p>
         </ion-label>
       </ion-item>
+
   
     </ion-list>
     <ion-button

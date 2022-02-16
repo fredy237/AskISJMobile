@@ -23,7 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
             return next.handle(request)
         }
 
-        return this.auth.getAccessTokenSilently().pipe(mergeMap(token => {
+        /* return this.auth.getAccessTokenSilently().pipe(mergeMap(token => {
             if(token) {
                 request = request.clone({
                     setHeaders: {
@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
             }
             console.log(request)
             return next.handle(request);
-        }))
+        })) */
 
         /* const token = "my-token-string-from-server";
 

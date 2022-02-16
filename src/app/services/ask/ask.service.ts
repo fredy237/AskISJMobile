@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
-import { HttpClient, HttpErrorResponse, HttpEvent, HttpRequest } from "@angular/common/http";
-import { Absence } from 'src/app/model/absence.model';
+import { BehaviorSubject, Observable, of } from "rxjs";
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpHeaders, HttpRequest } from "@angular/common/http";
 import { Ask } from 'src/app/model/ask.model';
-
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AbsenceService {
-
-  private baseUrl = 'http://localhost:8080';
+export class AskService {
+   
+   dataC: Observable<any[]>;
+   d: any;
+  private baseUrl = 'https://wkt6pccj9d.execute-api.us-east-1.amazonaws.com/dev';
   isTblLoading = true;
   dataChange: BehaviorSubject<Ask[]> = new BehaviorSubject<Ask[]>([]);
   // Temporarily stores data from dialogs
   dialogData: any;
+  
   constructor(private httpClient: HttpClient) {}
   get data(): Ask[] {
     return this.dataChange.value;
@@ -23,24 +25,20 @@ export class AbsenceService {
     return this.dialogData;
   }
   /** CRUD METHODS */
-  getAllRequests(): void {
-    this.httpClient.get<Ask[]>(`${this.baseUrl}/request/listAll`).subscribe(
-      (data) => {
-        this.isTblLoading = false;
-        this.dataChange.next(data);
-        console.log(data)
-      },
-      (error: HttpErrorResponse) => {
-        this.isTblLoading = false;
-        console.log(error.name + " " + error.message);
-      }
-    );
+  getAllAsks() {
+    const reqHeader = new HttpHeaders({'Content-Type': 'application/json',  'No-Auth': 'True',observe: 'body', responseType: 'json'  });
+
+    console.log('test')
+     return this.httpClient.get( `${this.baseUrl}/api/asks`,)
   }
+
+
+   
 
    addAsk(request): Observable<HttpEvent<any>> {
 
     console.log(request)
-    const req = new HttpRequest('POST', `${this.baseUrl}/request/save`, request, {
+    const req = new HttpRequest('POST', `${this.baseUrl}/api/asks`, request, {
       reportProgress: true,
       responseType: 'json'
     });

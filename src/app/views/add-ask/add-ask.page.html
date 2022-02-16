@@ -31,14 +31,14 @@
                         
                           <!-- Absence-->
                           <ion-item *ngIf="typeChoice ==1">
-                            <ion-textarea  formControlName="motif" type="text" required placeholder="motif">
+                            <ion-textarea  formControlName="reason" type="text" required placeholder="motif">
                               
                             </ion-textarea>
                               
                           </ion-item>
                           <br />
 
-                          <ion-select *ngIf="typeChoice ==1" interface="popover" class="selector" placeholder="Type de demande" (ionChange)="choice($event)"  formControlName="typeAbsence">
+                          <ion-select *ngIf="typeChoice ==1" interface="popover" class="selector" placeholder="Type de demande"  formControlName="typeAbsence">
                             <ion-select-option *ngFor="let typeAbsence of typeAbsences  "  [value]="typeAbsence.nom"   class="option" text-wrap>
                               {{typeAbsence.nom}}
                             </ion-select-option>
@@ -47,21 +47,21 @@
                           <!-- Revendication-->
                           <ion-item *ngIf="typeChoice ==2">
                             <ion-textarea  formControlName="subject" type="text" required placeholder="Matière">
-                              <ion-input  ></ion-input>
+                            
                             </ion-textarea>
                               
                           </ion-item>
 
                           <ion-item *ngIf="typeChoice ==2">
                             <ion-textarea  formControlName="obtainedMark" type="number" required placeholder="Note obtenue">
-                              <ion-input  ></ion-input>
+                            
                             </ion-textarea>
                               
                           </ion-item>
 
                           <ion-item *ngIf="typeChoice ==2">
                             <ion-textarea  formControlName="wishedMark" type="number" required placeholder="Note voulue">
-                              <ion-input  ></ion-input>
+                            
                             </ion-textarea>
                               
                           </ion-item>
