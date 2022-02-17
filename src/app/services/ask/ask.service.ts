@@ -26,10 +26,12 @@ export class AskService {
   }
   /** CRUD METHODS */
   getAllAsks() {
-    const reqHeader = new HttpHeaders({'Content-Type': 'application/json',  'No-Auth': 'True',observe: 'body', responseType: 'json'  });
+    const reqHeader = new HttpHeaders({'Content-Type': 'application/json',  'No-Auth': 'True', responseType: 'json'  });
 
     console.log('test')
-     return this.httpClient.get( `${this.baseUrl}/api/asks`,)
+     return this.httpClient.get( `${this.baseUrl}/api/asks`).subscribe((data)=>{
+       console.log(data)
+     })
   }
 
 

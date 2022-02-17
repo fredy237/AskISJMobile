@@ -24,9 +24,7 @@ export class AskPage implements OnInit {
   ionViewWillEnter(){
    console.log('test ion view')
   this.demandes= this.askService.getAllAsks();
-  if (!this.demandes.empty()){
-    console.log('fredy')
-  }
+ 
  
   
   }

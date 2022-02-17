@@ -107,6 +107,7 @@ export class AddAskPage implements OnInit {
   this.ask.reason = this.askForm.get('reason').value ;
   this.ask.type = this.askForm.get('typeAbsence').value;
   this.ask.startDate = this.askForm.get('date').value;
+  this.ask.type ="ABSENCE"
   this.ask.document= this.document;
   this.askService.addAsk(this.ask).subscribe(data => {
   },error => {
@@ -118,6 +119,7 @@ export class AddAskPage implements OnInit {
         this.ask.course = this.askForm.get('subject').value ;
        this.ask.obtained= this.askForm.get('obtainedMark').value ;
       this.ask.claimed= this.askForm.get('wishedMark').value ;
+      this.ask.type ="REVENDICATION"
       this.ask.document= this.document;
         this.askService.addAsk(this.ask).subscribe(data => {
         },error => {
@@ -125,6 +127,7 @@ export class AddAskPage implements OnInit {
         });
           }else{
             if(this.typeChoice == 3){
+              this.ask.type ="CERTIFICAT DE SCOLARITE"
               this.askService.addAsk(this.ask).subscribe(data => {
               },error => {
               
@@ -135,6 +138,7 @@ export class AddAskPage implements OnInit {
                     this.ask.amount= this.askForm.get('amount').value ;
                     this.ask.datePayment= this.askForm.get('date').value ;
                     this.ask.document= this.document;
+                    this.ask.type ="MORATOIRE"
                     this.askService.addAsk(this.ask).subscribe(data => {
                     },error => {
                     

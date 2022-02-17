@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (!request.url) {
+        if (request.url) {
             return next.handle(request)
         }
 
